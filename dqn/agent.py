@@ -5,6 +5,7 @@ import random
 import numpy as np
 from tqdm import tqdm
 import tensorflow as tf
+import sys
 
 from .base import BaseModel
 from .history import History
@@ -167,6 +168,14 @@ class Agent(BaseModel):
       self.s_t: s_t,
       self.learning_rate_step: self.step,
     })
+    
+    print('loss shape = ')
+    print(loss.shape)
+    
+    print('Q shape = ')
+    print(q_t.shape)
+    
+    sys.exit()
 
     self.writer.add_summary(summary_str, self.step)
     self.total_loss += loss
